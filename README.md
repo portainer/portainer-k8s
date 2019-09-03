@@ -2,6 +2,11 @@
 
 Experimental deployment of Portainer inside a Kubernetes cluster.
 
+Tested on:
+
+* Azure AKS
+* Digital Ocean
+
 ## Usage
 
 ```
