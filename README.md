@@ -15,13 +15,17 @@ kubectl ... apply -f manifest.yaml
 
 ## Dev
 
-#### Requirements
-- minikube
+This setup can be used to deploy Portainer inside a Kubernetes environment for development purposes.
 
-#### Usage
-1. in dev directory `yarn start`
+### Requirements
+
+- [minikube](https://minikube.sigs.k8s.io/)
+
+### Usage
+
+1. Start Portainer in development mode via `yarn start`
 2. `minikube start --mount --mount-string /path/to/dev/dist/directory:/portainer/app`
 3. `kubectl replace --force -f dev.yaml`
-4. `minikube ip` (returns minikube IP)
+4. Retrieve minikube IP via: `minikube ip`
 
 Open browser at `<minikube_IP>:9000`
