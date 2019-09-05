@@ -18,10 +18,10 @@ kubectl ... apply -f manifest.yaml
 #### Requirements
 - minikube
 
-1. `minikube start`
-2. in dev directory `yarn start`
-3. `minikube mount /path/to/dist/directory:/portainer/app`
-4. `kubectl replace --force -f dev.yaml`
-5. `minikube ip` (returns minikube IP)
+#### Usage
+1. in dev directory `yarn start`
+2. `minikube start --mount --mount-string /path/to/dev/dist/directory:/portainer/app`
+3. `kubectl replace --force -f dev.yaml`
+4. `minikube ip` (returns minikube IP)
 
 Open browser at `<minikube_IP>:9000`
