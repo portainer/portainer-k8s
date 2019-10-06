@@ -1,0 +1,58 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ns-portainer
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: sa-portainer
+  namespace: ns-portainer
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: crb-portainer
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: sa-portainer
+  namespace: ns-portainer
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: s-portainer
+  namespace: ns-portainer
+spec:
+  type: LoadBalancer
+  selector:
+    app: app-portainer
+  ports:
+    - name: http
+      protocol: TCP
+      port: 9001
+      targetPort: 9001
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: d-portainer
+  namespace: ns-portainer
+spec:
+  template:
+    metadata:
+      labels:
+        app: app-portainer
+    spec:
+      serviceAccountName: sa-portainer
+      containers:
+      - name: portainer
+        image: portainerci/agent:k8s-linux-amd64
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 9001
+          protocol: TCP

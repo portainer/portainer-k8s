@@ -1,0 +1,63 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ns-portainer
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: sa-portainer
+  namespace: ns-portainer
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: crb-portainer
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: sa-portainer
+  namespace: ns-portainer
+---
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: portainer-agent
+  namespace: ns-portainer
+spec:
+  selector:
+    matchLabels:
+      run: portainer-agent
+  template:
+    metadata:
+      labels:
+        run: portainer-agent
+    spec:
+      serviceAccountName: sa-portainer
+      hostname: portainer-agent
+      containers:
+      - name: portainer-agent
+        image: portainerci/agent:k8s-linux-amd64
+        imagePullPolicy: Always
+        env:
+        - name: LOG_LEVEL
+          value: DEBUG
+        - name: EDGE
+          value: "1"
+        - name: EDGE_ID
+          value: 0b3b6815-5157-438c-bea9-d4b6a66cd386
+        ports:
+        - containerPort: 9001
+          hostPort: 9001
+        - containerPort: 80
+          hostPort: 80
+        volumeMounts:
+        - mountPath: /var/run/docker.sock
+          name: docker-socket
+      volumes:
+      - name: docker-socket
+        hostPath:
+          path: /var/run/docker.sock
