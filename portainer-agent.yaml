@@ -46,11 +46,6 @@ spec:
   clusterIP: None
   selector:
     app: portainer-agent
-  ports:
-    - name: http
-      protocol: TCP
-      port: 9001
-      targetPort: 9001
 ---
 apiVersion: apps/v1
 kind: DaemonSet
