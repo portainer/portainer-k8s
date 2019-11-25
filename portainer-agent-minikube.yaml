@@ -6,20 +6,20 @@ metadata:
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: sa-portainer
+  name: portainer:sa-clusteradmin
   namespace: ns-portainer
 ---
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding
 metadata:
-  name: crb-portainer
+  name: portainer:crb-clusteradmin
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: cluster-admin
 subjects:
 - kind: ServiceAccount
-  name: sa-portainer
+  name: portainer:sa-clusteradmin
   namespace: ns-portainer
 ---
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
@@ -36,7 +36,7 @@ spec:
       labels:
         run: portainer-agent
     spec:
-      serviceAccountName: sa-portainer
+      serviceAccountName: portainer:sa-clusteradmin
       hostname: portainer-agent
       containers:
       - name: portainer-agent
