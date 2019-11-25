@@ -30,15 +30,15 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    app: app-portainer
+    app: portainer-agent
   ports:
     - name: http
       protocol: TCP
       port: 9001
       targetPort: 9001
 ---
-apiVersion: extensions/v1beta1
-kind: Deployment
+apiVersion: apps/v1
+kind: DaemonSet
 metadata:
   name: d-portainer
   namespace: ns-portainer
@@ -46,7 +46,7 @@ spec:
   template:
     metadata:
       labels:
-        app: app-portainer
+        app: portainer-agent
     spec:
       serviceAccountName: portainer:sa-clusteradmin
       containers:
