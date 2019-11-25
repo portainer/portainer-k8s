@@ -22,22 +22,36 @@ subjects:
   name: portainer-sa-clusteradmin
   namespace: ns-portainer
 ---
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Service
 metadata:
-  name: portainer-agent
+  name: s-portainer-agent-headless
+  namespace: ns-portainer
+spec:
+  clusterIP: None
+  selector:
+    app: portainer-agent
+  ports:
+    - name: http
+      protocol: TCP
+      port: 9001
+      targetPort: 9001
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: d-portainer-agent
   namespace: ns-portainer
 spec:
   selector:
     matchLabels:
-      run: portainer-agent
+      app: portainer-agent
   template:
     metadata:
       labels:
-        run: portainer-agent
+        app: portainer-agent
     spec:
       serviceAccountName: portainer-sa-clusteradmin
-      hostname: portainer-agent
       containers:
       - name: portainer-agent
         image: portainerci/agent:k8s-linux-amd64
@@ -45,6 +59,10 @@ spec:
         env:
         - name: LOG_LEVEL
           value: DEBUG
+        - name: KUBERNETES_POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
         - name: EDGE
           value: "1"
         - name: EDGE_ID
@@ -54,10 +72,3 @@ spec:
           hostPort: 9001
         - containerPort: 80
           hostPort: 80
-        volumeMounts:
-        - mountPath: /var/run/docker.sock
-          name: docker-socket
-      volumes:
-      - name: docker-socket
-        hostPath:
-          path: /var/run/docker.sock
