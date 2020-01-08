@@ -43,6 +43,9 @@ metadata:
   name: d-portainer
   namespace: ns-portainer
 spec:
+  selector:
+    matchLabels:
+      app: app-portainer
   template:
     metadata:
       labels:
