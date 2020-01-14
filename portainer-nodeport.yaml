@@ -34,7 +34,7 @@ spec:
   ports:
     - name: http
       protocol: TCP
-      port: 8999
+      port: 9000
       targetPort: 9000
       nodePort: 30777
 ---
