@@ -28,6 +28,7 @@ metadata:
   name: s-portainer
   namespace: ns-portainer
 spec:
+  type: NodePort
   selector:
     app: app-portainer
   ports:
