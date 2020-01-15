@@ -25,7 +25,7 @@ subjects:
 apiVersion: v1
 kind: Service
 metadata:
-  name: s-portainer
+  name: portainer
   namespace: ns-portainer
 spec:
   type: LoadBalancer
@@ -40,7 +40,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: d-portainer
+  name: portainer
   namespace: ns-portainer
 spec:
   selector:
