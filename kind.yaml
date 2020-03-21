@@ -1,0 +1,14 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+- role: control-plane
+- role: worker
+  extraMounts:
+    # hostPath must match the path to the dist folder of the portainer project
+  - hostPath: /home/tony/workspaces/go/src/github.com/portainer/portainer/dist
+    containerPath: /portainer/app
+  extraPortMappings:
+  - containerPort: 9000
+    hostPort: 9000
+    listenAddress: "0.0.0.0"
+    protocol: TCP

@@ -36,6 +36,10 @@ spec:
       protocol: TCP
       port: 8999
       targetPort: 9000
+    - name: edge
+      protocol: TCP
+      port: 8000
+      targetPort: 8000
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -58,4 +62,6 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 9000
+          protocol: TCP
+        - containerPort: 8000
           protocol: TCP
