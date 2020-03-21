@@ -19,11 +19,11 @@ This setup can be used to deploy Portainer inside a Kubernetes environment for d
 
 ## Minikube
 
-## Requirements
+### Requirements
 
 - [minikube](https://minikube.sigs.k8s.io/)
 
-## Usage
+### Usage
 
 1. Start Portainer in development mode via `yarn start`
 2. Start minikube: `minikube start --mount --mount-string /path/to/dev/dist/directory:/portainer/app`
@@ -34,11 +34,11 @@ Open browser at `<minikube_IP>:9000`
 
 ## kind
 
-## Requirements
+### Requirements
 
 - [kind](https://kind.sigs.k8s.io/)
 
-## Usage
+### Usage
 
 1. Update the `hostPath` property in the `kind.yaml` file to match the path of th project on your filesystem
 2. Create the cluster via `kind create cluster --config kind.yaml`
