@@ -58,10 +58,10 @@ main() {
   curl -L https://downloads.portainer.io/portainer-agent-edge-k8s.yaml -o portainer-agent-edge-k8s.yaml || errorAndExit "Unable to download agent manifest"
 
   info "Creating agent configuration..."
-  kubectl create configmap portainer-agent-edge-id "--from-literal=edge.id=$1" -n ns-portainer
+  kubectl create configmap portainer-agent-edge-id "--from-literal=edge.id=$1" -n portainer
 
   info "Creating agent secret..."
-  kubectl create secret generic portainer-agent-edge-key "--from-literal=edge.key=$2" -n ns-portainer
+  kubectl create secret generic portainer-agent-edge-key "--from-literal=edge.key=$2" -n portainer
 
   info "Deploying agent..."
   kubectl apply -f portainer-agent-edge-k8s.yaml || errorAndExit "Unable to deploy agent manifest"
