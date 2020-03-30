@@ -13,6 +13,11 @@ These manifests have been tested on:
 
 Have any feedback on the deployment of Portainer inside Kubernetes? Please head to the [deployment feedback topic](https://github.com/portainer/kubernetes-beta/issues/1).
 
+Supported platforms:
+
+* Linux amd64
+* Linux arm
+
 # Usage
 
 ## Deploy Portainer inside your cluster and access it via an external load balancer
@@ -33,7 +38,7 @@ If you prefer to access Portainer via a specific port on a node of your cluster,
 kubectl ... apply -f portainer-nodeport.yaml
 ```
 
-This will expose Portainer on the port `30777` inside your cluster. You can change that port inside the manifest if you wish.
+This will expose Portainer on the port `30777` inside your cluster (`30776` for Edge tunnel server). You can change these ports inside the manifest if you wish.
 
 ## Manage a remote Kubernetes cluster
 
@@ -52,3 +57,7 @@ This will deploy the Portainer agent and create an external load balancer which 
 ### Edge agent
 
 If you wish to deploy the Edge agent inside your Kubernetes cluster, it is recommended to follow the instructions available inside your Portainer instance.
+
+## ARM platform
+
+If you wish to deploy Portainer or the agent inside a Kubernetes cluster running on arm, please use the tag `linux-arm` instead of `linux-amd64`.
