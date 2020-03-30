@@ -2,7 +2,7 @@
 
 This repository contains all the manifests you can use to deploy the Portainer for Kubernetes BETA version.
 
-For any feedback regarding the BETA version, please head to the [portainer for Kubernetes BETA repository](https://github.com/portainer/kubernetes-beta)
+For any feedback regarding the BETA version, please head to the [portainer for Kubernetes BETA repository](https://github.com/portainer/kubernetes-beta).
 
 These manifests have been tested on:
 
@@ -11,7 +11,7 @@ These manifests have been tested on:
 * minikube
 * kind
 
-Have any feedback on the deployment of Portainer inside Kubernetes? Please head to the [deployment feedback topic](https://github.com/portainer/kubernetes-beta/issues/1)
+Have any feedback on the deployment of Portainer inside Kubernetes? Please head to the [deployment feedback topic](https://github.com/portainer/kubernetes-beta/issues/1).
 
 # Usage
 
