@@ -64,13 +64,13 @@ spec:
       serviceAccountName: portainer-sa-clusteradmin
       containers:
       - name: portainer-agent
-        image: portainerci/agent:k8s-linux-amd64
+        image: portainer/agent-k8s-beta:linux-amd64
         imagePullPolicy: Always
         env:
         - name: LOG_LEVEL
           value: DEBUG
         - name: AGENT_CLUSTER_ADDR
-          value: "portainer-agent-headless"          
+          value: "portainer-agent-headless"
         - name: KUBERNETES_POD_IP
           valueFrom:
             fieldRef:

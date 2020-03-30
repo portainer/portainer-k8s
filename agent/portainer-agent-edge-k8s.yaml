@@ -21,6 +21,7 @@ subjects:
 - kind: ServiceAccount
   name: portainer-sa-clusteradmin
   namespace: portainer
+# Optional: can be added to expose the agent port 80 to associate an Edge key.
 # ---
 # apiVersion: v1
 # kind: Service
@@ -64,7 +65,7 @@ spec:
       serviceAccountName: portainer-sa-clusteradmin
       containers:
       - name: portainer-agent
-        image: portainerci/agent:k8s-linux-amd64
+        image: portainer/agent-k8s-beta:linux-amd64
         imagePullPolicy: Always
         env:
         - name: LOG_LEVEL
