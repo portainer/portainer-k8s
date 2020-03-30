@@ -37,7 +37,7 @@ This will expose Portainer on the port `30777` inside your cluster. You can chan
 
 ## Manage a remote Kubernetes cluster
 
-In order to manage a remote Kubernetes cluster, you'll need a Portainer instance already deployed inside a Kubernetes cluster and connect it to a Portainer agent running inside the remote cluster. See the agent folder for how to deploy the agent inside a Kubernetes cluster.
+In order to manage a remote Kubernetes cluster, you'll need a Portainer for Kubernetes BETA instance already deployed inside a Kubernetes cluster and connect it to a Portainer agent running inside the remote cluster. See the agent folder for how to deploy the agent inside a Kubernetes cluster.
 
 # Dev
 
