@@ -11,6 +11,8 @@ These manifests have been tested on:
 * minikube
 * kind
 
+Have any feedback on the deployment of Portainer inside Kubernetes? Please head to the [deployment feedback topic](https://github.com/portainer/kubernetes-beta/issues/1)
+
 # Usage
 
 ## Deploy Portainer and access it via an external load balancer
