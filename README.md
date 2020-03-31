@@ -41,6 +41,12 @@ kubectl ... apply -f portainer-nodeport.yaml
 This will expose Portainer on the port `30777` inside your cluster (`30776` for Edge tunnel server). You can change these ports inside the manifest if you wish.
 
 ## Deploy Portainer using Helm Chart
+Before proceeding, ensure to create a namespace in advance. 
+For instance:
+```bash
+kubectl create namespace portainer
+```
+
 ### Testing the Chart
 Execute the following for testing the chart:
 
