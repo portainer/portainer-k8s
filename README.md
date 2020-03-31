@@ -25,7 +25,7 @@ Supported platforms:
 If your cloud provider supports external load balancers, you can use the following command to deploy Portainer:
 
 ```
-kubectl ... apply -f portainer.yaml
+kubectl apply -f portainer.yaml
 ```
 
 This will deploy the Portainer application and create an external load balancer which you'll be able to use to access Portainer on port 9000.
@@ -35,7 +35,7 @@ This will deploy the Portainer application and create an external load balancer 
 If you prefer to access Portainer via a specific port on a node of your cluster, use the following command:
 
 ```
-kubectl ... apply -f portainer-nodeport.yaml
+kubectl apply -f portainer-nodeport.yaml
 ```
 
 This will expose Portainer on the port `30777` inside your cluster (`30776` for Edge tunnel server). You can change these ports inside the manifest if you wish.
@@ -53,7 +53,7 @@ In order to manage a remote Kubernetes cluster, you'll need a Portainer for Kube
 If your cloud provider supports external load balancers, you can use the following command to deploy the regular Portainer agent (not Edge):
 
 ```
-kubectl ... apply -f agent/portainer-agent.yaml
+kubectl apply -f agent/portainer-agent.yaml
 ```
 
 This will deploy the Portainer agent and create an external load balancer which you'll be able to use to connect to the agent on port 9001.
