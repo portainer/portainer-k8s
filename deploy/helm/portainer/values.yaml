@@ -1,0 +1,36 @@
+# Default values for portainer.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: portainer/portainer-k8s-beta
+  tag: linux-amd64
+  pullPolicy: IfNotPresent
+
+imagePullSecrets: []
+
+serviceAccount:
+  annotations: {}
+  name: portainer-sa-clusteradmin
+
+service:
+  # Set the httpNodePort and edgeNodePort only if the type is NodePort
+  # For Ingress, set the type to be ClusterIP and set ingress.enabled to true
+  # For Cloud Providers, set the type to be LoadBalancer
+  type: LoadBalancer
+  httpPort: 9000
+  httpNodePort: 
+  edgePort: 8000
+  edgeNodePort: 
+
+ingress:
+  enabled: false
+  annotations: {}
+  hosts:
+    - host: 
+      paths: []
+  tls: []
+
+resources: {}

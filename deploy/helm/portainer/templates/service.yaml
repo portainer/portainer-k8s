@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "portainer.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "portainer.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.httpPort }}
+      targetPort: 9000
+      protocol: TCP
+      name: http
+      {{ if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.httpNodePort))) }}
+      nodePort: {{ .Values.service.httpNodePort}}
+      {{ end }}
+    - port: {{ .Values.service.edgePort }}
+      targetPort: 8000
+      protocol: TCP
+      name: edge
+      {{ if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.edgeNodePort))) }}
+      nodePort: {{ .Values.service.edgeNodePort }}
+      {{ end }}
+  selector:
+    {{- include "portainer.selectorLabels" . | nindent 4 }}

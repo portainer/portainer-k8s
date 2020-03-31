@@ -40,6 +40,9 @@ kubectl ... apply -f portainer-nodeport.yaml
 
 This will expose Portainer on the port `30777` inside your cluster (`30776` for Edge tunnel server). You can change these ports inside the manifest if you wish.
 
+## Deploy Portainer using Helm Chart
+Refer to the README under the `deploy/helm/portainer` directory for more details.
+
 ## Manage a remote Kubernetes cluster
 
 In order to manage a remote Kubernetes cluster, you'll need a Portainer for Kubernetes BETA instance already deployed inside a Kubernetes cluster and connect it to a Portainer agent running inside the remote cluster.
