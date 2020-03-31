@@ -1,7 +1,6 @@
 # Deploy Portainer using Helm Chart
-Refer to the README under `deploy/helm/portainer` directory for more details.
 
-Before proceeding, ensure to create a namespace in advance. 
+Before proceeding, ensure to create a namespace in advance.
 For instance:
 ```bash
 kubectl create namespace portainer
@@ -26,7 +25,7 @@ NOTES:
 1. Get the application URL by running these commands:
      NOTE: It may take a few minutes for the LoadBalancer IP to be available.
            You can watch the status of by running 'kubectl get --namespace portainer svc -w portainer'
-  
+
   export SERVICE_IP=$(kubectl get svc --namespace portainer portainer --template "{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}")
   echo http://$SERVICE_IP:9000
   http://20.40.176.8:9000
