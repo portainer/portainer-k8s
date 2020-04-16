@@ -1,6 +1,6 @@
 apiVersion: v2
-name: portainer
-description: A Helm chart for Kubernetes
+name: portainer-beta
+description: Helm chart used to deploy the Portainer for Kubernetes BETA version.
 
 # A chart can be either an 'application' or a 'library' chart.
 #
@@ -18,4 +18,4 @@ version: 1.0.0
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application.
-appVersion: 0.0.1
+appVersion: 1.0.0
