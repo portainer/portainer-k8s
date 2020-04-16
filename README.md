@@ -44,7 +44,15 @@ This will expose Portainer on the port `30777` inside your cluster (`30776` for 
 
 ## Deploy Portainer using Helm Chart
 
-Work-in-progress
+Run the following commands to install Portainer via `helm`:
+
+```
+kubectl create namespace portainer
+helm repo add portainer http://portainer.github.io/portainer-k8s
+helm upgrade --atomic -i portainer portainer/portainer-beta --version 1.0.0 -n portainer
+```
+
+**Note**: this deployment defaults to exposing Portainer over an external load balancer, have a look at the [chart configuration](charts/portainer-beta/README.md) in the `charts/portainer-beta` folder for more information on how to configure the helm deployment.
 
 ## Manage a remote Kubernetes cluster
 
