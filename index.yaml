@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  portainer-beta:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2020-04-16T04:54:28.407223724Z"
+    description: Helm chart used to deploy the Portainer for Kubernetes BETA version.
+    digest: df6d63f0c45934a557c7f490ec7ed8869e8f49ad5fc804fc4a519a2273ee69ed
+    name: portainer-beta
+    type: application
+    urls:
+    - https://github.com/portainer/portainer-k8s/releases/download/portainer-beta-1.0.0/portainer-beta-1.0.0.tgz
+    version: 1.0.0
+generated: "2020-04-16T04:54:28.297484823Z"
