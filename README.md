@@ -44,7 +44,7 @@ This will expose Portainer on the port `30777` inside your cluster (`30776` for 
 
 ## Deploy Portainer using Helm Chart
 
-Work-in-progress.
+Work-in-progress
 
 ## Manage a remote Kubernetes cluster
 
