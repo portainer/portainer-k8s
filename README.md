@@ -59,8 +59,8 @@ helm upgrade --atomic -i portainer portainer/portainer-beta --version 1.0.0 -n p
 In order to update to the latest version of the beta, you'll need to delete the `portainer` namespace and redeploy it.
 
 ```
-kubectl delete -f portainer.yaml
-kubectl apply -f portainer.yaml
+kubectl delete namespace/portainer
+kubectl apply -f portainer.yaml // or kubectl apply -f portainer-nodeport.yaml based on your initial deployment
 ```
 
 ## Manage a remote Kubernetes cluster
