@@ -54,6 +54,15 @@ helm upgrade --atomic -i portainer portainer/portainer-beta --version 1.0.0 -n p
 
 **Note**: this deployment defaults to exposing Portainer over an external load balancer, have a look at the [chart configuration](charts/portainer-beta/README.md) in the `charts/portainer-beta` folder for more information on how to configure the helm deployment.
 
+## Update to a new version of the beta
+
+In order to update to the latest version of the beta, you'll need to delete the `portainer` namespace and redeploy it.
+
+```
+kubectl delete -f portainer.yaml
+kubectl apply -f portainer.yaml
+```
+
 ## Manage a remote Kubernetes cluster
 
 In order to manage a remote Kubernetes cluster, you'll need a Portainer for Kubernetes BETA instance already deployed inside a Kubernetes cluster and connect it to a Portainer agent running inside the remote cluster.
