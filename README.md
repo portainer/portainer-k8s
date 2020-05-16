@@ -20,6 +20,10 @@ Supported platforms:
 
 # Usage
 
+## Notice
+
+These deployment manifests will deploy Portainer inside the `portainer` namespace. Portainer uses this namespace to store system information, as such this namespace must not be changed.
+
 ## Deploy Portainer inside your cluster and access it via an external load balancer
 
 If your cloud provider supports external load balancers, you can use the following commands to deploy Portainer:
