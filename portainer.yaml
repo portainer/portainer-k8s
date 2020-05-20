@@ -27,6 +27,8 @@ kind: Service
 metadata:
   name: portainer
   namespace: portainer
+  labels:
+    io.portainer.kubernetes.application.stack: portainer
 spec:
   type: LoadBalancer
   selector:
@@ -46,6 +48,8 @@ kind: Deployment
 metadata:
   name: portainer
   namespace: portainer
+  labels:
+    io.portainer.kubernetes.application.stack: portainer    
 spec:
   selector:
     matchLabels:

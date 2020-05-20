@@ -4,6 +4,7 @@ metadata:
   name: {{ include "portainer.fullname" . }}
   namespace: {{ .Release.Namespace }}
   labels:
+    io.portainer.kubernetes.application.stack: portainer
     {{- include "portainer.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}

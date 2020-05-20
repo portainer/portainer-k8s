@@ -27,6 +27,8 @@ kind: Service
 metadata:
   name: portainer
   namespace: portainer
+  labels:
+    io.portainer.kubernetes.application.stack: portainer
 spec:
   type: NodePort
   selector:
@@ -41,13 +43,15 @@ spec:
       protocol: TCP
       port: 8000
       targetPort: 8000
-      nodePort: 30776     
+      nodePort: 30776
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: portainer
   namespace: portainer
+  labels:
+    io.portainer.kubernetes.application.stack: portainer    
 spec:
   selector:
     matchLabels:
