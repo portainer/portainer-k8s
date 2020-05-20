@@ -20,6 +20,10 @@ Supported platforms:
 
 # Usage
 
+## Notice
+
+These deployment manifests will deploy Portainer inside the `portainer` namespace. Portainer uses this namespace to store system information, as such this namespace must not be changed.
+
 ## Deploy Portainer inside your cluster and access it via an external load balancer
 
 If your cloud provider supports external load balancers, you can use the following commands to deploy Portainer:
@@ -53,6 +57,15 @@ helm upgrade --atomic -i portainer portainer/portainer-beta --version 1.0.0 -n p
 ```
 
 **Note**: this deployment defaults to exposing Portainer over an external load balancer, have a look at the [chart configuration](charts/portainer-beta/README.md) in the `charts/portainer-beta` folder for more information on how to configure the helm deployment.
+
+## Update to a new version of the beta
+
+In order to update to the latest version of the beta, you'll need to delete the `portainer` namespace and redeploy it.
+
+```
+kubectl delete namespace/portainer
+kubectl apply -f portainer.yaml // or kubectl apply -f portainer-nodeport.yaml based on your initial deployment
+```
 
 ## Manage a remote Kubernetes cluster
 
