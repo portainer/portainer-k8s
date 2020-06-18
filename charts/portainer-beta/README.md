@@ -63,6 +63,7 @@ The following table lists the configurable parameters of the Portainer chart and
 | `ingress.enabled` | Create an ingress for Portainer | `false` |
 | `ingress.annotations` | Annotations to add to the ingress. For instane, `kubernetes.io/ingress.class: nginx` | `{}` |
 | `ingress.hosts.host` | URL for Portainer Web. For instance, `portainer.example.io` | `nil` |
-| `ingress.hosts.path` | Path for the Portainer Web. | `[]` |
+| `ingress.hosts.paths.path` | Path for the Portainer Web. | `/` |
+| `ingress.hosts.paths.port` | Port for the Portainer Web. | `9000` |
 | `ingress.tls` | TLS support on ingress. Must create a secret with TLS certificates in advance | `[]` |
 | `resources` | Portainer resource requests and limits | `{}` |
