@@ -36,13 +36,22 @@ spec:
       labels:
         run: portainer
     spec:
+      nodeSelector:
+        node-role.kubernetes.io/master: ''
       serviceAccountName: portainer-sa-clusteradmin
+      tolerations:
+        - key: node-role.kubernetes.io/master
+          operator: Exists
+          effect: NoSchedule
+        - key: portainer
+          operator: Equal
+          value: accept
+          effect: NoSchedule
       containers:
       - name: portainer
         image: portainer/base
-        # imagePullPolicy: "Never"
         command: ["/app/portainer"]
-        args: ["--no-analytics", "--template-file","/app/templates.json"]
+        args: ["--no-analytics"]
         ports:
         - containerPort: 9000
           hostPort: 9000
