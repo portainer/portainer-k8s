@@ -42,7 +42,7 @@ spec:
         image: portainer/base
         # imagePullPolicy: "Never"
         command: ["/app/portainer"]
-        args: ["--no-analytics", "--template-file","/app/templates.json"]
+        args: ["--no-analytics"]
         ports:
         - containerPort: 9000
           hostPort: 9000
