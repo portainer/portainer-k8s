@@ -62,7 +62,7 @@ spec:
       serviceAccountName: portainer-sa-clusteradmin
       containers:
       - name: portainer
-        image: portainer/portainer-k8s-beta:linux-amd64
+        image: portainerci/portainer:develop
         imagePullPolicy: Always
         ports:
         - containerPort: 9000
