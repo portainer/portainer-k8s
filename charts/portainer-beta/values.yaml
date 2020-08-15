@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: portainer/portainer-k8s-beta
+  repository: portainerci/portainer:develop
   tag: linux-amd64
   pullPolicy: IfNotPresent
 
