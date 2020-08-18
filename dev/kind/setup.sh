@@ -11,7 +11,7 @@ deploy() {
 }
 
 delete() {
-  kind delete clusters $1
+  kind delete cluster --name $1
 }
 
 redeploy() {
