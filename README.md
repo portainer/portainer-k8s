@@ -1,3 +1,9 @@
+# Important notice
+
+This repository has been archived.
+
+Portainer 2.0 includes support for Kubernetes, head to https://www.portainer.io/installation/ for more details about how to install it.
+
 # Portainer on Kubernetes BETA
 
 This repository contains all the manifests you can use to deploy the Portainer for Kubernetes BETA version.
